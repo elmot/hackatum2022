@@ -1,5 +1,8 @@
 include(FetchContent)
-cmake_policy(SET CMP0135 NEW)
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24")
+    cmake_policy(SET CMP0135 NEW)
+endif()
+
 if(CMAKE_HOST_WIN32) #[[TODO  verify platform specific]]
     FetchContent_Declare(arm-toolchain
             URL https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.zip
