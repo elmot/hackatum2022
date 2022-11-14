@@ -8,6 +8,19 @@ include(pico_sdk_import.cmake)
 project(hackatum2022)
 
 set(CMAKE_C_STANDARD 11)
+
+set(PICO_BOARD pico_w)
 pico_sdk_init()
 
-#todo request python!
+
+# Add executable.
+add_executable(blinky blinky.c)
+
+pico_set_program_name(blinky "blinky")
+pico_set_program_version(blinky "0.1")
+
+# Add the standard library to the build
+target_link_libraries(blinky pico_stdlib pico_cyw43_arch_none)
+
+pico_add_extra_outputs(blinky)
+

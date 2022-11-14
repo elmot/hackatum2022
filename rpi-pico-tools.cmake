@@ -1,6 +1,6 @@
 include(FetchContent)
-
-if(CMAKE_HOST_WIN32) #[[TODO  platform specific]]
+cmake_policy(SET CMP0135 NEW)
+if(CMAKE_HOST_WIN32) #[[TODO  verify platform specific]]
     FetchContent_Declare(arm-toolchain
             URL https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.zip
             URL_HASH SHA256=23f24595aa575fba4fdb0cb086df4b053862af60837502cb7e52bd4fb3d76c36
@@ -20,12 +20,6 @@ else()
 endif()
 
 FetchContent_Populate(arm-toolchain)
-
-
-#FetchContent_Declare(rpi-pico-sdk
-#        URL https://github.com/raspberrypi/pico-sdk/archive/refs/tags/1.4.0.zip
-#        SOURCE_DIR ${CMAKE_SOURCE_DIR}/pico-sdk)
-#FetchContent_Populate(rpi-pico-sdk)
 
 
 
