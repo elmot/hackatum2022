@@ -3,7 +3,7 @@ if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.24")
     cmake_policy(SET CMP0135 NEW)
 endif()
 
-if(CMAKE_HOST_WIN32) #[[TODO  verify linux]]
+if(CMAKE_HOST_WIN32)
     FetchContent_Declare(arm-toolchain
             URL https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-mingw-w64-i686-arm-none-eabi.zip
             URL_HASH SHA256=23f24595aa575fba4fdb0cb086df4b053862af60837502cb7e52bd4fb3d76c36
@@ -22,7 +22,9 @@ else()
     message(FATAL_ERROR "Unsupported host system ${CMAKE_HOST_SYSTEM_NAME}")
 endif()
 
+message(STATUS "Downloading toolchain...")
 FetchContent_Populate(arm-toolchain)
+message(STATUS "Downloaded")
 
 
 
